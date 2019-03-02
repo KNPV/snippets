@@ -99,6 +99,8 @@ https://blog.shibata.tech/entry/2015/07/05/114903
 変数の受け渡しや、インテリセンスが .psm1に直接すべて記述するのに比べると難があります。
 #>
 
+#モジュール内のコマンドレット呼び出し記法
+Az.Resources\Add-AzADGroupMember
 
 
 
