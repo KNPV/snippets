@@ -1,0 +1,21 @@
+例外
+非同期
+スクリプト言語系との連携　clojure
+Azure/Cloudをcliからかっこよくコントロール
+SDK化
+リアクティブ
+関数型
+マクロ　DSL
+cli
+react/angular
+DB管理
+認証
+デプロイ DevOps
+AltSignage
+JSEngineの派生形AzEngine
+V8 / BEAM / JVM / .Net / .Net Core / node / roswell / python
+ロジックモジュール言語としてのC#と.Net Framework/.Net Core
+Azure Service Fabricでの分散デプロイ、そこからのAzureクラウド化
+SQL Server固有の管理技術
+ActiveDirectory
+Azureアカウントの管理手法とデプロイ手法、部門分散管理
