@@ -20,6 +20,15 @@ WindowsのコマンドプロンプトでもSDKをインストールすればAz�
 
 
 PSCoreから呼べるモジュールの作り方
+[PowerShell]
 https://tech.guitarrapc.com/entry/2013/12/03/014013
+[PowerShell Core]
+https://github.com/PowerShell/PowerShell/blob/master/docs/cmdlet-example/visual-studio-simple-example.md
+
+* .Net coreのバージョンをあげたり、System.Management.Automationをインストールしたり
+
+
+C#からコマンドレット実行
+http://hensa40.cutegirl.jp/archives/2178
 
 VS Codeを使うと良い
