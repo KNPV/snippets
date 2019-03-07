@@ -1,0 +1,34 @@
+https://docs.microsoft.com/ja-jp/powershell/
+https://docs.microsoft.com/ja-jp/powershell/module/
+https://docs.microsoft.com/ja-jp/powershell/module/?view=azps-1.4.0
+
+
+Install-Module -Name Az -AllowClobber -Scope CurrentUser
+
+Get-Module -Name Az*
+
+Connect-AzAccount
+Connect-AzAccount -Environment AzureChinaCloud
+Get-Command -Verb Get -Noun AzVM* -Module Az.Compute
+
+Resource type	Azure PowerShell module	Noun prefix
+Resource group	Az.Resources	AzResourceGroup
+Virtual machines	Az.Compute	AzVM
+Storage accounts	Az.Storage	AzStorageAccount
+Key Vault	Az.KeyVault	AzKeyVault
+Web applications	Az.Websites	AzWebApp
+SQL databases	Az.Sql	AzSqlDatabase
+
+Add-AzSqlDatabaseToFailoverGroup
+   [-ServerName] <String>
+   [-FailoverGroupName] <String>
+   -Database <System.Collections.Generic.List`1[Microsoft.Azure.Commands.Sql.Database.Model.AzureSqlDatabaseModel]>
+   [-ResourceGroupName] <String>
+   [-DefaultProfile <IAzureContextContainer>]
+   [<CommonParameters>]
+
+$failoverGroup = Get-AzSqlDatabase -ResourceGroupName rg -ServerName primaryserver -DatabaseName db1 | Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName rg -ServerName primaryserver -FailoverGroupName fg
+
+$primaryServer = Get-AzSqlServer -ResourceGroupName rg -ServerName primaryserver
+$failoverGroup = $primaryServer | Add-AzSqlDatabaseToFailoverGroup -FailoverGroupName fg -Database ($primaryServer | Get-AzSqlDatabase)
+
