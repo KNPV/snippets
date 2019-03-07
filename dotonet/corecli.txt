@@ -61,4 +61,7 @@ Application started. Press Ctrl+C to shut down.
 
 
 Azure Cloud Shellでもdotnetコマンドがインストールされていて使える！
+-> じゃあ、コマンドレットもそこで実装、ビルドできるのでは？
+-> それをコンテナでデプロイすればいいのでは？
+
 
