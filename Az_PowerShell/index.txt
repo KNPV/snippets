@@ -1,6 +1,16 @@
 https://docs.microsoft.com/ja-jp/powershell/
 https://docs.microsoft.com/ja-jp/powershell/module/
 https://docs.microsoft.com/ja-jp/powershell/module/?view=azps-1.4.0
+https://docs.microsoft.com/en-us/powershell/developer/cmdlet/approved-verbs-for-windows-powershell-commands
+
+https://docs.microsoft.com/ja-jp/powershell/module/Az.Sql/?view=azps-1.4.0
+https://docs.microsoft.com/ja-jp/powershell/module/Az.Storage/?view=azps-1.4.0
+https://docs.microsoft.com/ja-jp/powershell/module/Az.Websites/?view=azps-1.4.0
+https://docs.microsoft.com/ja-jp/powershell/module/Az.ApiManagement/?view=azps-1.4.0
+https://docs.microsoft.com/ja-jp/powershell/module/Az.RedisCache/?view=azps-1.4.0
+https://docs.microsoft.com/ja-jp/powershell/module/Az.Resources/?view=azps-1.4.0
+https://docs.microsoft.com/ja-jp/powershell/module/Az.ServiceFabric/?view=azps-1.4.0
+https://docs.microsoft.com/ja-jp/powershell/module/Az.Subscription/?view=azps-1.4.0
 
 
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
@@ -31,4 +41,680 @@ $failoverGroup = Get-AzSqlDatabase -ResourceGroupName rg -ServerName primaryserv
 
 $primaryServer = Get-AzSqlServer -ResourceGroupName rg -ServerName primaryserver
 $failoverGroup = $primaryServer | Add-AzSqlDatabaseToFailoverGroup -FailoverGroupName fg -Database ($primaryServer | Get-AzSqlDatabase)
+
+New-AzSubscription
+   -EnrollmentAccountObjectId <String>
+   [[-Name] <String>]
+   -OfferType <String>
+   [-OwnerObjectId <String[]>]
+   [-OwnerSignInName <String[]>]
+   [-OwnerApplicationId <String[]>]
+   [-AsJob]
+   [-DefaultProfile <IAzureContextContainer>]
+   [-WhatIf]
+   [-Confirm]
+   [<CommonParameters>]
+   
+New-AzSubscription -Name "My Subscription" -EnrollmentAccountObjectId ((Get-AzEnrollmentAccount)[0].ObjectId) -OfferType MS-AZR-0017P
+
+Name        : My Subscription
+Id          : 86869d42-1782-4337-98b0-c905fb937d46
+TenantId    : a5dcb057-fd83-4384-9d49-5198004d33a5
+State       : Enabled
+
+
+Az.Compute
+This topic displays the help topics for the Azure Compute Cmdlets.
+
+Container Service
+Add-AzContainerServiceAgentPoolProfile	
+Adds a container service agent pool profile.
+
+Get-AzContainerService	
+Gets a container service.
+
+New-AzContainerService	
+Creates a container service.
+
+New-AzContainerServiceConfig	
+Creates a local configuration object for a container service.
+
+Remove-AzContainerService	
+Removes a container service.
+
+Remove-AzContainerServiceAgentPoolProfile	
+Removes an agent pool profile from a container service.
+
+Update-AzContainerService	
+Updates the state of a container service.
+
+VM Disks
+Add-AzVMDataDisk	
+Adds a data disk to a virtual machine.
+
+ConvertTo-AzVMManagedDisk	
+Converts a virtual machine with blob-based disks to a virtual machine with managed disks.
+
+Disable-AzVMDiskEncryption	
+Disables encryption on an IaaS virtual machine.
+
+Get-AzDisk	
+Gets the properties of a Managed disk.
+
+Get-AzVMDiskEncryptionStatus	
+Gets the encryption status of the virtual machine.
+
+Grant-AzDiskAccess	
+Grants an access to a disk.
+
+New-AzDisk	
+Creates a managed disk.
+
+New-AzDiskConfig	
+Creates a configurable disk object.
+
+New-AzDiskUpdateConfig	
+Creates a configurable disk update object.
+
+New-AzVMDataDisk	
+Creates a local data disk object for a virtual machine or a Vmss VM.
+
+Remove-AzDisk	
+Removes a disk.
+
+Remove-AzVMDataDisk	
+Removes a data disk from a virtual machine.
+
+Remove-AzVMDiskEncryptionExtension	
+Removes the disk encryption extension from a virtual machine.
+
+Revoke-AzDiskAccess	
+Revokes an access to a disk.
+
+Set-AzDiskDiskEncryptionKey	
+Sets the disk encryption key properties on a disk object.
+
+Set-AzDiskKeyEncryptionKey	
+Sets the key encryption key properties on a disk object.
+
+Set-AzDiskUpdateDiskEncryptionKey	
+Sets the disk encryption key properties on on a disk update object.
+
+Set-AzDiskUpdateKeyEncryptionKey	
+Sets the key encryption key properties on a disk update object.
+
+Set-AzVMDataDisk	
+Modifies properties of a virtual machine data disk.
+
+Set-AzVMDiskEncryptionExtension	
+Enables encryption on a running IaaS virtual machine in Azure.
+
+Set-AzVMOSDisk	
+Sets the operating system disk properties on a virtual machine.
+
+Update-AzDisk	
+Updates a disk.
+
+VM Extensions
+Get-AzVMADDomainExtension	
+Gets information about an AD domain extension.
+
+Get-AzVMAEMExtension	
+Gets information about the AEM extension.
+
+Get-AzVMAccessExtension	
+Gets information about the VMAccess extension.
+
+Get-AzVMChefExtension	
+Gets information about a Chef extension.
+
+Get-AzVMCustomScriptExtension	
+Gets information about a custom script extension.
+
+Get-AzVMDiagnosticsExtension	
+Gets the settings of the Diagnostics extension on a virtual machine.
+
+Get-AzVMDscExtension	
+Gets the settings of the DSC extension on a particular virtual machine.
+
+Get-AzVMDscExtensionStatus	
+Gets the status of the DSC extension handler for a virtual machine.
+
+Get-AzVMExtension	
+Gets properties of Virtual Machine Extensions installed on a virtual machine.
+
+Get-AzVMSqlServerExtension	
+Gets the settings for a SQL Server extension on a virtual machine.
+
+Remove-AzVMAEMExtension	
+Removes the AEM extension from a virtual machine.
+
+Remove-AzVMAccessExtension	
+Removes the VMAccess extension from a virtual machine.
+
+Remove-AzVMChefExtension	
+Removes the Chef extension from a virtual machine.
+
+Remove-AzVMCustomScriptExtension	
+Removes a custom script extension from a virtual machine.
+
+Remove-AzVMDiagnosticsExtension	
+Removes the Diagnostics extension from a virtual machine.
+
+Remove-AzVMDscExtension	
+Removes a DSC extension handler from a virtual machine in a resource group.
+
+Remove-AzVMExtension	
+Removes an extension from a virtual machine.
+
+Remove-AzVMSqlServerExtension	
+Removes a SQL Server extension from a virtual machine.
+
+Set-AzVMADDomainExtension	
+Adds an AD domain extension to a virtual machine.
+
+Set-AzVMAEMExtension	
+Enables support for monitoring for SAP systems.
+
+Set-AzVMAccessExtension	
+Adds the VMAccess extension to a virtual machine.
+
+Set-AzVMBackupExtension	
+Sets the backup extension properties on a virtual machine.
+
+Set-AzVMBginfoExtension	
+Adds the BGInfo extension to a virtual machine.
+
+Set-AzVMChefExtension	
+Adds a Chef extension to a virtual machine.
+
+Set-AzVMCustomScriptExtension	
+Adds a custom script extension to a virtual machine.
+
+Set-AzVMDiagnosticsExtension	
+Configures the Azure diagnostics extension on a virtual machine.
+
+Set-AzVMDscExtension	
+Configures the DSC extension on a virtual machine.
+
+Set-AzVMExtension	
+Updates extension properties or adds an extension to a virtual machine.
+
+Set-AzVMSqlServerExtension	
+Sets the Azure SQL Server extension on a virtual machine.
+
+Test-AzVMAEMExtension	
+Checks the configuration of the AEM extension.
+
+VM Images
+Add-AzImageDataDisk	
+Adds a data disk to an image obejct.
+
+Get-AzGalleryImageDefinition	
+Get or list gallery image definitions.
+
+Get-AzGalleryImageVersion	
+Get or list gallery image versions.
+
+Get-AzImage	
+Gets the properties of an image.
+
+Get-AzVMExtensionImage	
+Gets all versions for an Azure extension.
+
+Get-AzVMExtensionImageType	
+Gets the type of an Azure extension.
+
+Get-AzVMImage	
+Gets all the versions of a VMImage.
+
+Get-AzVMImageOffer	
+Gets VMImage offer types.
+
+Get-AzVMImagePublisher	
+Gets the VMImage publishers.
+
+Get-AzVMImageSku	
+Gets VMImage SKUs.
+
+New-AzGalleryImageDefinition	
+Create a gallery image definition.
+
+New-AzGalleryImageVersion	
+Create a gallery image version.
+
+New-AzImage	
+Creats an image.
+
+New-AzImageConfig	
+Creates a configurable image object.
+
+Remove-AzGalleryImageDefinition	
+Delete a gallery image definition.
+
+Remove-AzGalleryImageVersion	
+Delete a gallery image version.
+
+Remove-AzImage	
+Removes an image.
+
+Remove-AzImageDataDisk	
+Removes a data disk from an image object.
+
+Save-AzVMImage	
+Saves a virtual machine as a VMImage.
+
+Set-AzDiskImageReference	
+Sets the image reference properties on a disk object.
+
+Set-AzImageOsDisk	
+Sets the operating system disk properties on an image object.
+
+Set-AzVMSourceImage	
+Specifies the image for a virtual machine.
+
+Update-AzGalleryImageDefinition	
+Update a gallery image definition.
+
+Update-AzGalleryImageVersion	
+Update a gallery image version.
+
+Update-AzImage	
+Updates an image.
+
+VM Scale Sets
+Add-AzVmssAdditionalUnattendContent	
+Adds information to the unattended Windows Setup answer file.
+
+Add-AzVmssDataDisk	
+Adds a data disk to the VMSS.
+
+Add-AzVmssDiagnosticsExtension	
+Adds a diagnostics extension to the VMSS.
+
+Add-AzVmssExtension	
+Adds an extension to the VMSS.
+
+Add-AzVmssNetworkInterfaceConfiguration	
+Adds a network interface configuration to the VMSS.
+
+Add-AzVmssSecret	
+Adds a secret to a VMSS.
+
+Add-AzVmssSshPublicKey	
+Adds SSH public keys to the VMSS.
+
+Add-AzVmssVMDataDisk	
+Adds a data disk to a Vmss VM.
+
+Add-AzVmssWinRMListener	
+Adds a WinRM listener to the VMSS.
+
+Disable-AzVmssDiskEncryption	
+Disables disk encryption on a VM scale set.
+
+Get-AzVmss	
+Gets the properties of a VMSS.
+
+Get-AzVmssDiskEncryption	
+Shows the disk encryption status of a VM scale set.
+
+Get-AzVmssRollingUpgrade	
+Shows the status of the latest virtual machine scale set rolling upgrade.
+
+Get-AzVmssSku	
+Gets the available SKUs for the VMSS.
+
+Get-AzVmssVM	
+Gets the properties of a VMSS virtual machine.
+
+Get-AzVmssVMDiskEncryption	
+Shows the disk encryption status of VMs in a VM scale set.
+
+Invoke-AzVmssVMRunCommand	
+Run command on the Virtual Machine Scale Set VM.
+
+New-AzVmss	
+Creates a VMSS.
+
+New-AzVmssConfig	
+Creates a VMSS configuration object.
+
+New-AzVmssIpConfig	
+Creates an IP configuration for a network interface of a VMSS.
+
+New-AzVmssIpTagConfig	
+Creates an IP Tag object for a network interface of a VMSS.
+
+New-AzVmssVaultCertificateConfig	
+Creates a Key Vault certificate configuration.
+
+Remove-AzVmss	
+Removes the VMSS or a virtual machine that is within the VMSS.
+
+Remove-AzVmssDataDisk	
+Removes a data disk from the VMSS.
+
+Remove-AzVmssDiagnosticsExtension	
+Removes a diagnostics extension from the VMSS.
+
+Remove-AzVmssExtension	
+Removes an extension from the VMSS.
+
+Remove-AzVmssNetworkInterfaceConfiguration	
+Removes a network interface configuration from a VMSS.
+
+Remove-AzVmssVMDataDisk	
+Removes a data disk from a virtual machine scale set VM
+
+Repair-AzVmssServiceFabricUpdateDomain	
+Manual platform update domain walk to update virtual machines in a service fabric virtual machine scale set.
+
+Restart-AzVmss	
+Restarts the VMSS or a virtual machine within the VMSS.
+
+Set-AzVmss	
+Sets specific actions on a specified VMSS.
+
+Set-AzVmssBootDiagnostic	
+Sets the virtual machine scale set boot diagnostics profile.
+
+Set-AzVmssDiskEncryptionExtension	
+Enables disk encryption on a VM scale set.
+
+Set-AzVmssOsProfile	
+Sets the VMSS operating system profile properties.
+
+Set-AzVmssRollingUpgradePolicy	
+Sets the VMSS rolling upgrade policy properties.
+
+Set-AzVmssStorageProfile	
+Sets the storage profile properties for the VMSS.
+
+Set-AzVmssVM	
+Modifies the state of a VMSS instance.
+
+Start-AzVmss	
+Starts the VMSS or a set of virtual machines within the VMSS.
+
+Start-AzVmssRollingOSUpgrade	
+Starts a rolling upgrade to move all virtual machine scale set instances to the latest available Platform Image OS version.
+
+Stop-AzVmss	
+Stops the VMSS or a set of virtual machines within the VMSS.
+
+Stop-AzVmssRollingUpgrade	
+Cancels the current virtual machine scale set rolling upgrade.
+
+Update-AzVmss	
+Updates the state of a VMSS.
+
+Update-AzVmssInstance	
+Starts a manual upgrade of the VMSS instance.
+
+Update-AzVmssVM	
+Updates the state of a Vmss VM.
+
+VM Snapshots
+Get-AzSnapshot	
+Gets the properties of a snapshot
+
+Grant-AzSnapshotAccess	
+Grants an access to a snapshot.
+
+New-AzSnapshot	
+Creates a snapshot.
+
+New-AzSnapshotConfig	
+Creates a configurable snapshot object.
+
+New-AzSnapshotUpdateConfig	
+Creates a configurable snapshot update object.
+
+Remove-AzSnapshot	
+Removes a snapshot.
+
+Revoke-AzSnapshotAccess	
+Revokes an access to a snapshot.
+
+Set-AzSnapshotDiskEncryptionKey	
+Sets the disk encryption key properties on a snapshot object.
+
+Set-AzSnapshotImageReference	
+Sets the image reference properties on a snapshot object.
+
+Set-AzSnapshotKeyEncryptionKey	
+Sets the key encryption key properties on a snapshot object.
+
+Set-AzSnapshotUpdateDiskEncryptionKey	
+Sets the disk encryption key properties on a snapshot update object.
+
+Set-AzSnapshotUpdateKeyEncryptionKey	
+Sets the key encryption key properties on a snapshot update object.
+
+Update-AzSnapshot	
+Updates a snapshot.
+
+VM VHDs
+Add-AzVhd	
+Uploads a virtual hard disk from an on-premises virtual machine to a blob in a cloud storage account in Azure.
+
+Save-AzVhd	
+Saves downloaded .vhd images locally.
+
+Virtual Machines
+Add-AzVMAdditionalUnattendContent	
+Adds information to the unattended Windows Setup answer file.
+
+Add-AzVMNetworkInterface	
+Adds a network interface to a virtual machine.
+
+Add-AzVMSecret	
+Adds a secret to a virtual machine.
+
+Add-AzVMSshPublicKey	
+Adds the public keys for SSH for a virtual machine.
+
+Export-AzLogAnalyticRequestRateByInterval	
+Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
+
+Export-AzLogAnalyticThrottledRequests	
+Export logs that show total throttled Api requests for this subscription in the given time window.
+
+Get-AzAvailabilitySet	
+Gets Azure availability sets in a resource group.
+
+Get-AzComputeResourceSku	
+List all compute resource Skus
+
+Get-AzGallery	
+Get or list galleries.
+
+Get-AzRemoteDesktopFile	
+Gets an .rdp file.
+
+Get-AzVM	
+Gets the properties of a virtual machine.
+
+Get-AzVMBootDiagnosticsData	
+Gets boot diagnostics data for a virtual machine.
+
+Get-AzVMRunCommandDocument	
+Get a run command document.
+
+Get-AzVMSize	
+Gets available virtual machine sizes.
+
+Get-AzVMUsage	
+Gets the virtual machine core count usage for a location.
+
+Invoke-AzVMReimage	
+Reimage an Azure virtual machine.
+
+Invoke-AzVMRunCommand	
+Run a command on the VM.
+
+New-AzAvailabilitySet	
+Creates an Azure availability set.
+
+New-AzGallery	
+Create a gallery.
+
+New-AzVM	
+Creates a virtual machine.
+
+New-AzVMConfig	
+Creates a configurable virtual machine object.
+
+New-AzVMSqlServerAutoBackupConfig	
+Creates a configuration object for SQL Server automatic backup.
+
+New-AzVMSqlServerAutoPatchingConfig	
+Creates a configuration object for automatic patching on a virtual machine.
+
+New-AzVMSqlServerKeyVaultCredentialConfig	
+Creates a configuration object for SQL server key vault credential on a virtual machine.
+
+Publish-AzVMDscConfiguration	
+Uploads a DSC script to Azure blob storage.
+
+Remove-AzAvailabilitySet	
+Removes an availability set from Azure.
+
+Remove-AzGallery	
+Delete a gallery.
+
+Remove-AzVM	
+Removes a virtual machine from Azure.
+
+Remove-AzVMBackup	
+Removes the backup from a virtual machine.
+
+Remove-AzVMNetworkInterface	
+Removes a network interface from a virtual machine.
+
+Remove-AzVMSecret	
+Removes (a) secret(s) from a virtual machine object
+
+Restart-AzVM	
+Restarts an Azure virtual machine.
+
+Set-AzVM	
+Marks a virtual machine as generalized.
+
+Set-AzVMBootDiagnostics	
+Modifies boot diagnostics properties of a virtual machine.
+
+Set-AzVMOperatingSystem	
+Sets operating system properties for a virtual machine.
+
+Set-AzVMPlan	
+Sets the Marketplace plan information on a virtual machine.
+
+Start-AzVM	
+Starts an Azure virtual machine.
+
+Stop-AzVM	
+Stops an Azure virtual machine.
+
+Update-AzAvailabilitySet	
+Updates an availability set.
+
+Update-AzGallery	
+Update a gallery.
+
+Update-AzVM	
+Updates the state of an Azure virtual machine.
+
+
+------
+https://docs.microsoft.com/ja-jp/powershell/azure/azureps-vm-tutorial?view=azps-1.4.0
+
+Connect-AzAccount
+
+New-AzResourceGroup -Name TutorialResources -Location eastus
+
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+$vmParams = @{
+  ResourceGroupName = 'TutorialResources'
+  Name = 'TutorialVM1'
+  Location = 'eastus'
+  ImageName = 'Win2016Datacenter'
+  PublicIpAddressName = 'tutorialPublicIp'
+  Credential = $cred
+  OpenPorts = 3389
+}
+$newVM1 = New-AzVM @vmParams
+
+Creating Azure resources
+  39% \
+  [ooooooooooooooooooooooooooooooooooo                                                                 ]
+
+  Creating TutorialVM1 virtual machine.
+  
+$newVM1.OSProfile | Select-Object ComputerName,AdminUserName
+
+$newVM1 | Get-AzNetworkInterface |
+  Select-Object -ExpandProperty IpConfigurations |
+    Select-Object Name,PrivateIpAddress
+    
+Name        PrivateIpAddress
+----        ----------------
+TutorialVM1 192.168.1.4
+
+
+$publicIp = Get-AzPublicIpAddress -Name tutorialPublicIp -ResourceGroupName TutorialResources
+
+$publicIp | Select-Object Name,IpAddress,@{label='FQDN';expression={$_.DnsSettings.Fqdn}}
+
+Name             IpAddress           FQDN
+----             ---------           ----
+tutorialPublicIp <PUBLIC_IP_ADDRESS> tutorialvm1-8a0999.eastus.cloudapp.azure.com
+
+mstsc.exe /v <PUBLIC_IP_ADDRESS>
+$vm2Params = @{
+  ResourceGroupName = 'TutorialResources'
+  Name = 'TutorialVM2'
+  ImageName = 'Win2016Datacenter'
+  VirtualNetworkName = 'TutorialVM1'
+  SubnetName = 'TutorialVM1'
+  PublicIpAddressName = 'tutorialPublicIp2'
+  Credential = $cred
+  OpenPorts = 3389
+}
+$newVM2 = New-AzVM @vm2Params
+
+$newVM2
+
+ResourceGroupName        : TutorialResources
+Id                       : /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/TutorialResources/providers/Microsoft.Compute/virtualMachines/TutorialVM2
+VmId                     : 12345678-9abc-def0-1234-56789abcedf1
+Name                     : TutorialVM2
+Type                     : Microsoft.Compute/virtualMachines
+Location                 : eastus
+Tags                     : {}
+HardwareProfile          : {VmSize}
+NetworkProfile           : {NetworkInterfaces}
+OSProfile                : {ComputerName, AdminUsername, WindowsConfiguration, Secrets}
+ProvisioningState        : Succeeded
+StorageProfile           : {ImageReference, OsDisk, DataDisks}
+FullyQualifiedDomainName : tutorialvm2-dfa5af.eastus.cloudapp.azure.com
+
+mstsc.exe /v $newVM2.FullyQualifiedDomainName
+$job = Remove-AzResourceGroup -Name TutorialResources -Force -AsJob
+
+$job
+
+Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+--     ----            -------------   -----         -----------     --------             -------
+1      Long Running... AzureLongRun... Running       True            localhost            Remove-AzResource...
+
+Wait-Job -Id $job.Id
+
+
+
+
+
+
 
