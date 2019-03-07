@@ -1,3 +1,60 @@
+https://msdn.microsoft.com/ja-jp/magazine/mt842506.aspx?f=255&MSPPError=-2147217396
+
 .NET Core CLI という優れた CLI が生まれました。.NET Core CLI のメイン ドライバーは「dotnet」と呼ばれます。 
 事実上、プロジェクトの作成、ビルド、テスト、パッケージ化という開発のすべての側面に
 この dotnet を使用できます。次の例を見てみましょう。
+
+手始めに、Hello World コンソール アプリケーションを作成して実行します 
+(ここでは、Windows で PowerShell を使用していますが、macOS や Linux で Bash を使用しても
+同じように機能します)
+
+$ dotnet new console -o hello
+$ cd hello
+$ dotnet run
+Hello World!
+
+「dotnet new」コマンドは、Visual Studio で [ファイル] メニューの [新しいプロジェクト] を
+選択した場合と同じ動作をする CLI です。さまざまな種類のプロジェクトを作成できます。
+「dotnet new」と入力して、インストール済みのさまざまなテンプレートを確認します
+
+ここでは、ロジックの一部をクラス ライブラリに取り出します。そのためには、hello プロジェクトと一緒に
+クラス ライブラリ プロジェクトを作成します。
+
+$ cd ..
+$ dotnet new library -o logic
+$ cd logic
+
+ライブラリにカプセル化するロジックは、Hello World メッセージを作成する部分です。
+そのため、Class1.cs のコンテンツを以下のコードに変更します。
+
+少し面白くするために、簡単な ASP.NET Core Web サイトを作成してみましょう。
+
+$ cd ..
+$ dotnet new web -o web
+$ cd web
+$ dotnet add reference ../logic/logic.csproj
+
+次のように Startup.cs ファイルを編集して、HelloWorld クラスを使用するように app.Run の呼び出しを変更します。
+
+app.Run(async (context) =>
+{
+  var name = Environment.UserName;
+  var message = logic.HelloWorld.GetMessage(name);
+  await context.Response.WriteAsync(message);
+});
+
+開発 Web サーバーを起動するには、再度「dotnet run」を使用するだけです。
+
+$ dotnet run
+Hosting environment: Production
+Now listening on: http://localhost:5000
+Application started. Press Ctrl+C to shut down.
+
+
+.NET Core のもう 1 つの大きなメリットは、自己完結型の配置をサポートすることです。
+.NET Core ランタイムの独自のコピーを用意するような方法で、Docker を使用してアプリケーションを
+コンテナー化することができます。
+これにより、異なる .NET Core バージョンを使用している同じのコンピューターで、
+相互に干渉しないで異なるアプリケーションを実行できるようになります。.NET Core はオープン ソースなので、
+夜間ビルドや自身で変更またはビルドしたバージョンをインクルードして、
+自身が加えた変更を含めることができます (この点については、今回は扱いません)。
