@@ -40,6 +40,7 @@ Automationサービスには、.NetCoreではなくて.NetFrameworkだと成功�
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="System.Management.Automation" Version="6.1.0" />
 を追加するとビルド、PowerShell Coreからの読み込みと実行に成功した Install-Module
+https://blog.karamem0.jp/entry/2018/12/12/120000
 
 Azure環境で、.NetCoreのコマンドレットがまだうまくいかない
 Azure環境にパッケージをインストールする方法がわからない　Install-Moduleとか
