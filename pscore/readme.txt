@@ -43,7 +43,7 @@ Automationサービスには、.NetCoreではなくて.NetFrameworkだと成功�
 https://blog.karamem0.jp/entry/2018/12/12/120000
 
 Azure環境で、.NetCoreのコマンドレットがまだうまくいかない
-Azure環境にパッケージをインストールする方法がわからない　Install-Moduleとか
+Azure環境にパッケージをインストールする方法がわからない　Import-Moduleとか
 
 動いてないけど、
     # パッケージプロバイダにNugetを追加
