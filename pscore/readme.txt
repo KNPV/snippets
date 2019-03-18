@@ -43,3 +43,15 @@ Automationサービスには、.NetCoreではなくて.NetFrameworkだと成功�
 
 Azure環境で、.NetCoreのコマンドレットがまだうまくいかない
 Azure環境にパッケージをインストールする方法がわからない　Install-Moduleとか
+
+動いてないけど、
+    # パッケージプロバイダにNugetを追加
+    Install-PackageProvider -Name Nuget
+
+    # Nugetからパッケージ名を検索して、インストール実行
+    Find-Package -Name DocumentFormat.OpenXml -Source https://www.nuget.org/api/v2 -RequiredVersion 2.5.0 | Install-Package
+    Find-Package -Name ClosedXML -Source https://www.nuget.org/api/v2 -RequiredVersion 0.76.0 | Install-Package
+
+    # パッケージのインストール確認
+    Get-Package -ProviderName Nuget
+みたいな感じらしい
